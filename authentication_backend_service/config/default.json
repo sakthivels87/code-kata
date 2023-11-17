@@ -1,0 +1,5 @@
+{
+    "jwtPrivateKey": "unsecureKey",
+    "db": "cluster0.bfkmcm7.mongodb.net/?retryWrites=true&w=majority",
+    "requiresAuth": true
+}

@@ -1,0 +1,6 @@
+{
+    "mongodbUser": "sakthi_mongodbUser",
+    "mongodbPass": "sakthi_mongodbPass",
+    "jwtPrivateKey": "unsecureKey",
+    "db": "cluster0.bfkmcm7.mongodb.net/?retryWrites=true&w=majority"
+}
