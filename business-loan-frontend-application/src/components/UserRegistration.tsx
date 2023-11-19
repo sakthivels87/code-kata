@@ -44,21 +44,21 @@ const UserRegistration = ({ onRegister }: Props) => {
         //reset();
       })}
     >
-      <FormControl isInvalid={errors.name != undefined}>
+      <FormControl isInvalid={errors.name != undefined} isRequired>
         <FormLabel>Name: </FormLabel>
         <Input id="name" type="text" {...register("name")} />
         {errors.name && (
           <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
         )}
       </FormControl>
-      <FormControl isInvalid={errors.email != undefined}>
+      <FormControl isInvalid={errors.email != undefined} isRequired>
         <FormLabel>Email:</FormLabel>
         <Input type="email" {...register("email")} />
         {errors.email && (
           <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
         )}
       </FormControl>
-      <FormControl isInvalid={errors.password != undefined}>
+      <FormControl isInvalid={errors.password != undefined} isRequired>
         <FormLabel>Password: </FormLabel>
         <Input type="password" {...register("password")} />
         {errors.password && (

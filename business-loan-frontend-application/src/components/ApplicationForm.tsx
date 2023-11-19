@@ -33,7 +33,10 @@ const schema = z.object({
 
 type LoanData = z.infer<typeof schema>;
 
-const ApplicationForm = () => {
+interface Props {
+  onFilled: (data: LoanData) => void;
+}
+const ApplicationForm = ({ onFilled }: Props) => {
   const {
     register,
     handleSubmit,
@@ -41,7 +44,7 @@ const ApplicationForm = () => {
   } = useForm<LoanData>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: LoanData) => {
-    console.log("Loan Details...", data);
+    onFilled(data);
   };
   return (
     <Box padding={5}>
@@ -49,14 +52,18 @@ const ApplicationForm = () => {
       <Heading> Please provide your business details</Heading>
       <Box width="500px">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <FormControl mt={4} isInvalid={errors.name != undefined}>
+          <FormControl mt={4} isInvalid={errors.name != undefined} isRequired>
             <FormLabel>Name: </FormLabel>
             <Input id="name" type="text" {...register("name")} />
             {errors.name && (
               <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
             )}
           </FormControl>
-          <FormControl mt={4} isInvalid={errors.establishedYear != undefined}>
+          <FormControl
+            mt={4}
+            isInvalid={errors.establishedYear != undefined}
+            isRequired
+          >
             <FormLabel>Established Year: </FormLabel>
             <Input
               id="name"
@@ -69,7 +76,11 @@ const ApplicationForm = () => {
               </FormErrorMessage>
             )}
           </FormControl>
-          <FormControl mt={4} isInvalid={errors.profitOrLoss != undefined}>
+          <FormControl
+            mt={4}
+            isInvalid={errors.profitOrLoss != undefined}
+            isRequired
+          >
             <FormLabel>ProfitOrLoss</FormLabel>
             <Input
               id="name"
@@ -82,7 +93,11 @@ const ApplicationForm = () => {
               </FormErrorMessage>
             )}
           </FormControl>
-          <FormControl mt={4} isInvalid={errors.preAssessment != undefined}>
+          <FormControl
+            mt={4}
+            isInvalid={errors.preAssessment != undefined}
+            isRequired
+          >
             <FormLabel>Pre Assessment: </FormLabel>
             <Input
               id="name"
